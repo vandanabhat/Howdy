@@ -1,14 +1,19 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
-  'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version'
+angular.module('howdy', [
+  'ngRoute' ,
+  'ui.bootstrap',
+  'mobile-angular-ui'
 ]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
-
-  $routeProvider.otherwise({redirectTo: '/view1'});
+config(['$locationProvider', '$routeProvider',function($locationProvider, $routeProvider) {
+  //$locationProvider.hashPrefix('!');
+  $routeProvider.
+  when('/messages', {
+    templateUrl: 'views/message-list.html'
+  }).
+  when('/message-detail', {
+    templateUrl: 'views/message-detail.html'
+  })
+  .otherwise({redirectTo: '/messages'});
 }]);
