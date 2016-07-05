@@ -1,0 +1,21 @@
+<div class="message-list" ng-controller="messageDetailController" style="height: 100%;">
+    <div class="navbar navbar-app navbar-absolute-top">{{name}}</div>
+    <ul class="scrollable-content" style="list-style: none;padding-left: 0px">
+        <li ng-repeat="c in item.chats">
+            <div>
+                <div>
+                    <div>{{c.name}}</div>
+                    <span>{{c.text}}</span>
+                </div>
+
+            </div>
+        </li>
+    </ul>
+    <div class="navbar navbar-app navbar-absolute-bottom">
+        <div style="display: flex">
+            <input type="text" placeholder="Enter Text" name="text" class="form-control" style="width: 85%;margin-top: 7px;">
+            <button name="send" type="button" class="btn btn-primary btn-xs form-control" style="width: 12%">Send</button>
+        </div>
+    </div>
+</div>
+
