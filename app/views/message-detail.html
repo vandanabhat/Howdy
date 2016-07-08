@@ -1,20 +1,39 @@
-<div class="message-list" ng-controller="messageDetailController" style="height: 100%;">
-    <div class="navbar navbar-app navbar-absolute-top">{{name}}</div>
-    <ul class="scrollable-content" style="list-style: none;padding-left: 0px">
-        <li ng-repeat="c in item.chats">
-            <div>
-                <div>
-                    <div>{{c.name}}</div>
-                    <span>{{c.text}}</span>
-                </div>
-
-            </div>
-        </li>
-    </ul>
+<div class="message-detail" ng-controller="messageDetailController">
+    <div class="navbar navbar-app navbar-absolute-top header">
+        <a class="back-icon" ng-click="goBackHome()"><img src="../app/images/arrow-back.png"></a>
+        <span class="header-text">{{name}}</span>
+    </div>
+    <div class="scrollable chat-list-body">
+        <ul class="scrollable-content chat-content">
+            <li ng-repeat="c in item.chats">
+                        <div ng-show="item.type=='group' && c.name != 'me'">{{c.name}}</div>
+                        <span class="chatWidget"
+                              ng-class="{'me':c.name == 'me'}"
+                              ng-hide="c.picture"
+                              ng-bind-html="c.text | emoji"></span>
+                        <img id="pic{{$index}}" src={{c.picture}} alt="no image" ng-show="c.picture" />
+            </li>
+        </ul>
+    </div>
     <div class="navbar navbar-app navbar-absolute-bottom">
-        <div style="display: flex">
-            <input type="text" placeholder="Enter Text" name="text" class="form-control" style="width: 85%;margin-top: 7px;">
-            <button name="send" type="button" class="btn btn-primary btn-xs form-control" style="width: 12%">Send</button>
+        <div class="footer">
+           <form>
+               <label for="imageUpload" class="uloadImage"><img src="../app/images/Camera-50.png"></label>
+               <input type="file"
+                      name="imageUpload"
+                      id="imageUpload"
+                      style="display: none"
+                      ng-model='imageUpload'
+                      accept="image/*"/>
+               <input type="text"
+                      placeholder="Enter Text"
+                      name="text"
+                      class="form-control"
+                      ng-model="text"
+                      ng-keydown="$event.keyCode == 13 && sendMessage();">
+               <button name="send" type="button" class="btn btn-primary btn-xs form-control" ng-click="sendMessage()">Send</button>
+           </form>
+
         </div>
     </div>
 </div>

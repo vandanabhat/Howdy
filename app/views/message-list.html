@@ -1,12 +1,17 @@
-<div class="navbar navbar-app navbar-absolute-top"><!-- Top Navbar --></div>
-<div class="message-list" ng-controller="messageListController" style="height: 100%;">
-    <ul class="scrollable-content" style="list-style: none;padding-left: 0px">
-    <li ng-repeat="message in messages" class="list-group" ui-turn-off='uiSidebarLeft' style="margin-bottom:0">
-        <a class="list-group-item" ng-click="showChatDetail(message.name)">
-            <img src="{{message.displayPic}}" alt="No Image" width="25px" height="25px" style="border-radius: 5px">
-            <span>{{message.name}}</span>
-        </a>
-    </li>
-</ul>
+<div ng-controller="messageListController" class="chat-list">
+    <div class="navbar navbar-app navbar-absolute-top header">
+        <span class="header-text">Howdy Chats</span>
+    </div>
+    <div  class="scrollable chat-list-body">
+        <ul class="scrollable-content">
+            <li ng-repeat="message in messages" class="list-group" ui-turn-off='uiSidebarLeft' style="margin-bottom:0">
+                <a class="list-group-item" ng-click="showChatDetail(message.name)">
+                    <img src="{{message.displayPic}}" alt={{message.name}} width="25px" height="25px" style="border-radius: 5px">
+                    <span>{{message.name}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="navbar navbar-app navbar-absolute-bottom"><!-- Bottom Navbar --></div>
 </div>
-<div class="navbar navbar-app navbar-absolute-bottom"><!-- Bottom Navbar --></div>
+

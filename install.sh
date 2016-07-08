@@ -7,6 +7,9 @@ npm install -g bower
 npm install
 bower install
 bower install --save mobile-angular-ui
+bower install angular-emoji-filter-hd
+bower install angular-sanitize --save
+bower install angular-emoji-filter
 grunt build
 
 
