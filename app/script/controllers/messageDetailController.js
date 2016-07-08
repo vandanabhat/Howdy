@@ -24,7 +24,7 @@ angular.module('howdy').controller('messageDetailController', ['$scope', '$route
 
         //stores chats in data factory
         $scope.sendMessage = function(){
-            if($scope.text || $scope.text == "") return;
+            if( !$scope.text || $scope.text == "") return;
             $scope.item.chats.push({name:"me", text:$scope.text});
             $scope.text = '';
             scrollToBottom();

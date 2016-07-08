@@ -25,5 +25,8 @@ Why I used dependencies?
     I am storing data in dataFactory file as JSON object.
     storing images in base64 format.
     
-    
+Use python simple http server (or any other app server) to host the application
  
+    python -m SimpleHTTPServer 8000
+    url:http://localhost:8000/app/index.html#/
+
